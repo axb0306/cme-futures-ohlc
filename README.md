@@ -123,9 +123,17 @@ All timestamps are in UTC.
 
 ## Auto-Update
 
-Data is updated nightly via `update_data.py` (requires `config.json` with TopstepX API credentials — see `config.example.json`).
+Data is updated nightly via cron on a VPS. The cron job runs:
 
-Schedule: **02:30 UTC+3 (23:30 UTC)**, Tuesday–Saturday.
+```
+git pull && python3 update_data.py
+```
+
+This ensures the latest script is always used before downloading new data.
+
+Schedule: **23:30 UTC (02:30 UTC+3)**, Monday–Friday (covers Tuesday–Saturday market closes).
+
+The script appends new bars to existing CSV files and renames them with the updated end date. Changes are automatically committed and pushed to this repository.
 
 ## Setup
 
@@ -134,6 +142,14 @@ cp config.example.json config.json
 # Edit config.json with your TopstepX API credentials
 pip install requests
 python3 update_data.py
+```
+
+### Cron setup (VPS)
+
+```bash
+crontab -e
+# Add:
+30 23 * * 1-5 cd /path/to/cme-futures-ohlc && git pull && python3 update_data.py >> update.log 2>&1
 ```
 
 ## Data Source
