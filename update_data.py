@@ -34,9 +34,11 @@ CONTRACTS = {
     "MNQ": "CON.F.US.MNQ.M26",
     "MES": "CON.F.US.MES.M26",
     "MGC": "CON.F.US.MGC.J26",
+    "MCL": "CON.F.US.MCLE.K26",
 }
 
 TIMEFRAMES = [
+    ("tick",  1, 1),
     ("1min",  2, 1),
     ("5min",  2, 5),
     ("15min", 2, 15),
@@ -153,11 +155,12 @@ def main():
                 print(f"  {symbol} {tf_label}: already up to date")
                 continue
 
-            # Fetch new bars
+            # Fetch new bars (tick data needs smaller chunks)
+            chunk_days = 3 if unit == 1 else 13
             all_new = []
             chunk_start = fetch_start
             while chunk_start < fetch_end:
-                chunk_end = min(chunk_start + timedelta(days=13), fetch_end)
+                chunk_end = min(chunk_start + timedelta(days=chunk_days), fetch_end)
                 bars = fetch_bars(session, contract_id, chunk_start, chunk_end, unit, unit_number)
                 if bars:
                     all_new.extend(bars)
