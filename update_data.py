@@ -30,11 +30,67 @@ USERNAME = _cfg["username"]
 API_KEY = _cfg["api_key"]
 
 # Current front-month contracts (update when contracts roll)
+# To refresh: call Contract/available and update IDs
 CONTRACTS = {
+    # Micro indices
     "MNQ": "CON.F.US.MNQ.M26",
     "MES": "CON.F.US.MES.M26",
+    "MYM": "CON.F.US.MYM.M26",
+    "M2K": "CON.F.US.M2K.M26",
+    # E-mini indices
+    "NQ":  "CON.F.US.ENQ.M26",
+    "ES":  "CON.F.US.EP.M26",
+    "YM":  "CON.F.US.YM.M26",
+    "RTY": "CON.F.US.RTY.M26",
+    # Metals
     "MGC": "CON.F.US.MGC.J26",
+    "GC":  "CON.F.US.GCE.J26",
+    "SIL": "CON.F.US.SIL.K26",
+    "SI":  "CON.F.US.SIE.K26",
+    "MHG": "CON.F.US.MHG.K26",
+    "HG":  "CON.F.US.CPE.K26",
+    "PL":  "CON.F.US.PLE.J26",
+    # Energy
     "MCL": "CON.F.US.MCLE.K26",
+    "CL":  "CON.F.US.CLE.K26",
+    "QM":  "CON.F.US.NQM.K26",
+    "NG":  "CON.F.US.NGE.J26",
+    "MNG": "CON.F.US.MNG.J26",
+    "QG":  "CON.F.US.NQG.J26",
+    "HO":  "CON.F.US.HOE.K26",
+    "RB":  "CON.F.US.RBE.K26",
+    # Currencies
+    "6E":  "CON.F.US.EU6.M26",
+    "6B":  "CON.F.US.BP6.M26",
+    "6J":  "CON.F.US.JY6.M26",
+    "6C":  "CON.F.US.CA6.M26",
+    "6A":  "CON.F.US.DA6.M26",
+    "6S":  "CON.F.US.SF6.M26",
+    "6N":  "CON.F.US.NE6.M26",
+    "6M":  "CON.F.US.MX6.M26",
+    "M6E": "CON.F.US.M6E.M26",
+    "M6B": "CON.F.US.M6B.M26",
+    "M6A": "CON.F.US.M6A.M26",
+    "E7":  "CON.F.US.EEU.M26",
+    # Treasuries
+    "ZB":  "CON.F.US.USA.M26",
+    "ZN":  "CON.F.US.TYA.M26",
+    "ZF":  "CON.F.US.FVA.M26",
+    "ZT":  "CON.F.US.TUA.M26",
+    "TN":  "CON.F.US.TNA.M26",
+    "UB":  "CON.F.US.ULA.M26",
+    # Agriculture
+    "ZC":  "CON.F.US.ZCE.K26",
+    "ZS":  "CON.F.US.ZSE.K26",
+    "ZW":  "CON.F.US.ZWA.K26",
+    "ZL":  "CON.F.US.ZLE.K26",
+    "ZM":  "CON.F.US.ZME.K26",
+    "HE":  "CON.F.US.HE.M26",
+    "LE":  "CON.F.US.GLE.M26",
+    # Other
+    "NKD": "CON.F.US.NKD.M26",
+    "MBT": "CON.F.US.MBT.H26",
+    "MET": "CON.F.US.GMET.H26",
 }
 
 TIMEFRAMES = [
