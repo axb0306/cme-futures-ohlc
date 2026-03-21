@@ -125,7 +125,7 @@ All timestamps are in UTC.
 
 Data is updated nightly via `update_data.py` (requires `config.json` with TopstepX API credentials — see `config.example.json`).
 
-Schedule: **01:00 UTC+3 (22:00 UTC)**, Tuesday–Saturday.
+Schedule: **02:30 UTC+3 (23:30 UTC)**, Tuesday–Saturday.
 
 ## Setup
 
